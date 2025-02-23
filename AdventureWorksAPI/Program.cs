@@ -19,17 +19,11 @@ namespace AdventureWorksAPI
             builder.Services.AddDbContext<AdventureWorksContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("AdventureWorksDb")));
 
-
-                //AsyncServiceScope.AddDbContext<AdventureWorksContext>(OptionsBuilderConfigurationExtensions =>
-                //        OptionsBuilderConfigurationExtensions.UseSqlServer(ConfigurationBinder.GetConnectionString("AdventureWorksDb")));
-                //builder.AddControllers();
-                //AsyncServiceScope.AddSwaggerGen();
                   builder.Services.AddCors(OptionsBuilderConfigurationExtensions =>
                   {
                               OptionsBuilderConfigurationExtensions.AddPolicy("AllowAngularApp",
                                               builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
                   });
-                
 
             var app = builder.Build();
 
